@@ -10,9 +10,7 @@ Let's build an app for a company to help track what its employees are working on
 
 3. Let users add and list projects, and assign projects to employees. An employee can have multiple projects and many employees can work on the same project.
 
-Lets users choose a division or a project to see what employees are in it.
-
-Now, the company has gotten more collaborative - multiple employees can work on the same project. For this many-to-many relationship, read the Rails guide on the has_and_belongs_to_many association. In their example, the code t.belongs_to :assembly is equivalent to t.column :assembly_id, :integer. To update an employee with which project it's working on, you'll run something like employee.update(:projects => [project1, project2]).To see what employees are working on a project, you'll run something like project.employees. Active Record will automatically work through the join table for you!
+4. Lets users choose a division or a project to see what employees are in it.
 
 The company wants to start tracking what each employee contributed to a project. Read the Rails guide on has_many :through and use it instead of has_and_belongs_to_many. Make sure that the company can provide a description of each employee's contribution to the project.
 

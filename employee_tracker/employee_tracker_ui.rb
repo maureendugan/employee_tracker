@@ -61,7 +61,10 @@ def list_menu
   puts "------LIST-------"
   puts "Press 'E' for employee"
   puts "Press 'D' for division"
+  puts "Press 'ED' for employees by division"
   puts "Press 'P' for projects"
+  puts "Press 'EP' for employees by project"
+  puts "Press 'PE' for projects that employees are working on"
   puts "Press 'M' to return to main menu"
   choice = gets.chomp.upcase
 
@@ -70,8 +73,14 @@ def list_menu
     list_employees
   when "D"
     list_divisions
+  when "ED"
+    list_employees_in_division
   when "P"
     list_projects
+  when "EP"
+    list_project_employees
+  when "PE"
+    list_employee_projects
   when "M"
 
   else
@@ -113,11 +122,7 @@ def list_employees
   puts
   puts "Your Employees"
   Employee.all.reorder('name').each do |employee|
-    if employee.division
-      puts "#{employee.name} #{employee.division.name}"
-    else
-      puts "#{employee.name}"
-    end
+    puts "#{employee.name}"
   end
 end
 
@@ -131,6 +136,16 @@ def add_employee_to_division
   employee_name = gets.chomp
   employee = Employee.find_by(:name => employee_name)
   division.employees << employee
+end
+
+def list_employees_in_division
+  list_divisions
+  puts "Which division would you like to review?"
+  division_name = gets.chomp.capitalize
+  division = Division.find_by(:name => division_name)
+  division.employees.each do |employee|
+    puts employee.name
+  end
 end
 
 def add_division
@@ -174,6 +189,26 @@ def add_employee_to_project
 
   employee.projects << project
   puts "#{employee.name} is now working on #{project.name}"
+end
+
+def list_project_employees
+  list_projects
+  puts "Enter a project:"
+  project_name = gets.chomp
+  project = Project.find_by(:name => project_name)
+  project.employees.each do |employee|
+    puts employee.name
+  end
+end
+
+def list_employee_projects
+  list_employees
+  puts "Enter an employee name:"
+  employee_name = gets.chomp
+  employee = Employee.find_by(:name => employee_name)
+  employee.projects.each do |project|
+    puts project.name
+  end
 end
 
 system "clear"
