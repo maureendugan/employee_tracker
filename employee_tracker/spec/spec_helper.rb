@@ -4,6 +4,8 @@ require 'shoulda-matchers'
 
 require 'employee'
 require 'division'
+require 'project'
+require 'employee_project'
 
 
 database_configuration = YAML::load(File.open('./db/config.yml'))
@@ -14,5 +16,6 @@ RSpec.configure do |config|
   config.after(:each) do
     Employee.all.each { |employee| employee.destroy }
     Division.all.each { |division| division.destroy }
+    Project.all.each { |project| project.destroy }
   end
 end
