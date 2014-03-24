@@ -6,7 +6,7 @@ Let's build an app for a company to help track what its employees are working on
 
 1. Let users add and list employees.
 
-Let users create divisions in the company and add employees to a division. In this company, an employee only belongs to one division (there is a one-to-many relationship between employees and divisions). Let users list out divisions, and then choose a division to see what employees are in it.
+2. Let users create divisions in the company and add employees to a division. In this company, an employee only belongs to one division (there is a one-to-many relationship between employees and divisions). Let users list out divisions, and then choose a division to see what employees are in it.
 
 Let users add and list projects, and assign projects to employees. For now, assume that a project has only one employee working on it, but that an employee should be able to track the history of the projects they've worked on or are currently working on. (Again, this is a one-to-many relationship.)
 
