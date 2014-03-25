@@ -12,6 +12,8 @@ Let's build an app for a company to help track what its employees are working on
 
 4. Lets users choose a division or a project to see what employees are in it.
 
+5. Creates the contributions class
+
 The company wants to start tracking what each employee contributed to a project. Read the Rails guide on has_many :through and use it instead of has_and_belongs_to_many. Make sure that the company can provide a description of each employee's contribution to the project.
 
 Let the company choose a division and list out all of the projects its employees have worked on. Do this with a single line of Active Record methods.
